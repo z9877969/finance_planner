@@ -1,0 +1,20 @@
+.wrapper {
+  gap: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+    width: 26px;
+}
+
+.text {
+  font-family: var(--main-font);
+  font-style: normal;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 20px;
+
+  /* white */
+  color: #f3f3f3;
+}

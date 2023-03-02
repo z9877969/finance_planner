@@ -1,0 +1,26 @@
+@mixin button($_type, $_width, $_height, $_color) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $_width;
+  height: $_height;
+
+  font-family: var(--main-font);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+
+  border-radius: 60px;
+
+  @if $_type == dark {
+    background-color: var(--button-bg-dark);
+    color: var(--button-color-light);
+  } @else if $_type == light {
+    background-color: var(--button-bg-light);
+    color: var(--button-color-dark);
+
+    @if $_color != null {
+      color: $_color;
+    }
+  }
+}

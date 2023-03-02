@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  align-items: center;
+  height: 72px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: var(--main-dark-bg);
+}
+
+.containerFlex {
+  display: flex;
+  align-items: center;
+}
