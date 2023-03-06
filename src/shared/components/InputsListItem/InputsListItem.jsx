@@ -6,13 +6,15 @@ const InputsListItem = ({
   type = "text",
   component: Component = null,
   descr,
+  children,
 }) => {
   return (
     <li className={s.item}>
-      <input className={s.input} type={type} />
+      {children ? children : <input className={s.input} type={type} />}
+
       <label className={s.label}>
         <h3 className={s.title}>
-          <span className={s.titleFirst}>{num}.</span>
+          {num && <span className={s.titleFirst}>{num}.</span>}
           <span className={s.titleSecond}>{title}</span>
         </h3>
       </label>

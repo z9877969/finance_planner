@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Header } from "./modules/Header";
 import { ModalLogin, ModalRegister } from "./modules/HomePage";
-import { HomePage, OwnPlanPage } from "./pages";
+import { CashFlowPage, HomePage, OwnPlanPage } from "./pages";
 import { PrivateRoute, PublicRoute } from "./shared/containers";
 
 const App = () => {
@@ -17,14 +17,18 @@ const App = () => {
           path="/plan"
           element={<PrivateRoute component={<OwnPlanPage />} />}
         />
+        <Route
+          path="/cash-flow"
+          element={<PrivateRoute component={<CashFlowPage />} />}
+        />
         <Route path="*" element={<Navigate to={"/"} />} />
       </Routes>
     </>
   );
 };
 
-// - /plan - рендерить компонент OwnPlanPage
-// - /cash-flow - рендерить компонент ExpensesPage
+// - /plan - рендерить компонент OwnPlanPage +
+// - /cash-flow - рендерить компонент ExpensesPage +
 // - /dynamics - рендерить компонент DynamicsPage
 
 export default App;

@@ -18,10 +18,15 @@
 
 .form {
   display: flex;
+  align-items: flex-start;
 }
 
 .label {
   width: 183px;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 6px;
 
   &:first-child {
     margin-right: 18px;
@@ -30,6 +35,10 @@
   &:last-child {
     margin-right: 54px;
   }
+
+  &.under {
+    flex-direction: column-reverse;
+  }
 }
 
 .labelTitle {
@@ -37,7 +46,6 @@
   font-size: 14px;
   line-height: 18px;
   color: var(--secondary-color-light);
-  margin-bottom: 6px;
 }
 
 .input {
@@ -64,4 +72,8 @@
   @include button(light, 200px, 46px, null);
   align-self: flex-end;
   margin-left: auto;
+
+  &.under {
+    align-self: flex-start;
+  }
 }
