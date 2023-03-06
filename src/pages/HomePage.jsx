@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import BgContainer from "../modules/MainPage/BgContainer/BgContainer";
+import { BgContainer } from "../modules/HomePage";
 import Container from "../shared/components/Container/Container";
-import Modal from "../shared/components/Modal/Modal";
 import Section from "../shared/components/Section/Section";
 
 const HomePage = () => {
@@ -17,7 +16,7 @@ const HomePage = () => {
   return (
     <Section>
       <Container>
-        <BgContainer></BgContainer>
+        <BgContainer />
         <Outlet />
       </Container>
     </Section>

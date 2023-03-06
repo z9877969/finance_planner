@@ -1,0 +1,40 @@
+@import "../../../../assets/styles/mixins";
+
+.wrapper {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+}
+
+.avatar {
+  width: 41px;
+  height: 41px;
+  background-color: bisque;
+  border: 2px solid var(--color-dark);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.nickName {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-light);
+  margin-right: 24px;
+}
+
+.btnLogout {
+  @include button(light, 119px, 40px, var(--button-color-black));
+
+  & span {
+    margin-right: 10px;
+  }
+
+  & img {
+    width: 14px;
+    height: 14px;
+  }
+}

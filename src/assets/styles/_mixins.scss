@@ -10,17 +10,33 @@
   font-size: 14px;
   line-height: 20px;
 
+  border: none;
   border-radius: 60px;
 
   @if $_type == dark {
     background-color: var(--button-bg-dark);
     color: var(--button-color-light);
+
+    &:hover {
+      background: var(--button-bg-dark-hover);
+    }
   } @else if $_type == light {
     background-color: var(--button-bg-light);
     color: var(--button-color-dark);
 
+    &:hover {
+      background-color: var(--button-bg-light-hover);
+    }
+
     @if $_color != null {
       color: $_color;
     }
+  }
+
+  transform: scale(1);
+  transition: transform 300ms linear;
+
+  &:active {
+    transform: scale(0.95);
   }
 }

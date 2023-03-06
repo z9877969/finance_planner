@@ -1,0 +1,22 @@
+@import "../../../../assets/styles/mixins";
+
+.wrapper {
+  display: flex;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.btn {
+  text-decoration: none;
+  display: block;
+}
+
+.btn_login {
+  composes: btn;
+  @include button(light, 86px, 40px, var(--button-color-black));
+}
+
+.btn_register {
+  composes: btn;
+  @include button(dark, 86px, 40px, null);
+}

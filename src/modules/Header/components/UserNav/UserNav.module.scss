@@ -1,0 +1,25 @@
+.nav {
+  margin-right: 262px;
+}
+
+.list {
+  display: flex;
+}
+
+.item {
+  &:not(:last-child) {
+    margin-right: 32px;
+  }
+}
+
+.link {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-light);
+
+  &.active {
+    color: var(--color-dark);
+  }
+}

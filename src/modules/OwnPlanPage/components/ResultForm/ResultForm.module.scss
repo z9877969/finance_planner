@@ -1,0 +1,67 @@
+@import "../../../../assets/styles/mixins";
+
+.wrapper {
+  width: 770px;
+  padding: 24px 66px;
+
+  background-color: var(--bg-dark);
+  border-radius: 16px;
+}
+
+.title {
+  margin-bottom: 14px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--color-light);
+}
+
+.form {
+  display: flex;
+}
+
+.label {
+  width: 183px;
+
+  &:first-child {
+    margin-right: 18px;
+  }
+
+  &:last-child {
+    margin-right: 54px;
+  }
+}
+
+.labelTitle {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--secondary-color-light);
+  margin-bottom: 6px;
+}
+
+.input {
+  padding: 14px 0px 14px 24px;
+
+  width: 100%;
+  height: 46px;
+
+  border: 1px solid var(--secondary-color-light);
+  border-radius: 28px;
+
+  background: none;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--color-light);
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.btnSubmit {
+  @include button(light, 200px, 46px, null);
+  align-self: flex-end;
+  margin-left: auto;
+}
