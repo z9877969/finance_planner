@@ -1,0 +1,42 @@
+.list {
+  display: flex;
+  column-gap: 10px;
+  margin-bottom: 48px;
+}
+// 327
+.item {
+  display: flex;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--color-light);
+
+  &::before {
+    display: block;
+    content: "";
+    width: 11px;
+    height: 11px;
+    margin-right: 7px;
+    border-radius: 50%;
+  }
+}
+
+.accum {
+  margin-right: 32px;
+  &::before {
+    background-color: var(--marker-bg-accum);
+  }
+}
+
+.expense {
+  margin-right: 46px;
+  &::before {
+    background-color: var(--marker-bg-expense);
+  }
+}
+
+.income {
+  &::before {
+    background-color: var(--marker-bg-income);
+  }
+}

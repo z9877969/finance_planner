@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import { BgContainer } from "../modules/HomePage";
-import Container from "../shared/components/Container/Container";
-import Section from "../shared/components/Section/Section";
+import { BgContainer } from "../modules/homePage";
+import { Container, Section } from "../shared/components";
 
 const HomePage = () => {
   useEffect(() => {

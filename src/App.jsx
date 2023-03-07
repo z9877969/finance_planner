@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { Header } from "./modules/Header";
-import { ModalLogin, ModalRegister } from "./modules/HomePage";
-import { CashFlowPage, HomePage, OwnPlanPage } from "./pages";
+import { Header } from "./modules/header";
+import { ModalLogin, ModalRegister } from "./modules/homePage";
+import { CashFlowPage, HomePage, OwnPlanPage, DynamicsPage } from "./pages";
 import { getCurUser } from "./redux/auth/authOperations";
 import { PrivateRoute, PublicRoute } from "./shared/containers";
 
@@ -32,7 +32,7 @@ const App = () => {
         />
         <Route
           path="/dynamics"
-          element={<PrivateRoute component={<h1>DynamicsPage</h1>} />}
+          element={<PrivateRoute component={<DynamicsPage />} />}
         />
         <Route path="*" element={<Navigate to={"/"} />} />
       </Routes>

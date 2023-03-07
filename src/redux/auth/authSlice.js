@@ -7,7 +7,7 @@ import {
 } from "./authOperations";
 
 const initialState = {
-  isAuth: false,
+  isAuth: true,
   user: {
     name: "Bart",
     email: null,

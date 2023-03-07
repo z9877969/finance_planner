@@ -1,27 +1,15 @@
 import {
   InputsList,
   resultFormOptions as options,
-} from "../modules/OwnPlanPage";
-import {
-  Container,
-  Section,
-  PageWrapper,
-  ResultForm,
-} from "../shared/components";
+} from "../modules/ownPlanPage";
+import { PageWrapper, ResultForm } from "../shared/components";
 
 const OwnPlanPage = () => {
   return (
-    <Section>
-      <Container>
-        <PageWrapper>
-          <InputsList />
-          <ResultForm
-            title="You will have an apartment in:"
-            options={options}
-          />
-        </PageWrapper>
-      </Container>
-    </Section>
+    <PageWrapper>
+      <InputsList />
+      <ResultForm title="You will have an apartment in:" options={options} />
+    </PageWrapper>
   );
 };
 

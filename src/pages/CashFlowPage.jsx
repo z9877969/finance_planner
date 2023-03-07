@@ -1,24 +1,15 @@
 import {
   InputsList,
   resultFormOptions as options,
-} from "../modules/CashFlowPage";
-import {
-  PageWrapper,
-  Container,
-  Section,
-  ResultForm,
-} from "../shared/components";
+} from "../modules/cashFlowPage";
+import { PageWrapper, ResultForm } from "../shared/components";
 
 const CashFlowPage = () => {
   return (
-    <Section>
-      <Container>
-        <PageWrapper>
-          <InputsList />
-          <ResultForm labelPosition="under" options={options} />
-        </PageWrapper>
-      </Container>
-    </Section>
+    <PageWrapper>
+      <InputsList />
+      <ResultForm labelPosition="under" options={options} />
+    </PageWrapper>
   );
 };
 
