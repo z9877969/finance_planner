@@ -1,9 +1,8 @@
-import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { selectorIsAuth } from "../../redux/auth/authSelectors";
+import { useAuth } from "../hooks/useAuth";
 
 const PublicRoute = ({ component }) => {
-  const isAuth = useSelector(selectorIsAuth);
+  const { isAuth } = useAuth();
 
   return isAuth ? <Navigate to="/plan" /> : component;
 };

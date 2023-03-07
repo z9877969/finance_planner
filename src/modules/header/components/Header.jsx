@@ -1,20 +1,18 @@
-import { useSelector } from "react-redux";
 import Container from "../../../shared/components/Container/Container";
 import Navigation from "./Navigation/Navigation";
 import UserBar from "./UserBar/UserBar";
-import { selectorIsAuth } from "../../../redux/auth/authSelectors";
-
-import s from "./Header.module.scss";
 import Logo from "./Logo/Logo";
+import s from "./Header.module.scss";
+import { useAuth } from "../../../shared/hooks/useAuth";
 
 const Header = () => {
-  const isAuth = useSelector(selectorIsAuth);
+  const { isAuth, isRefreshing } = useAuth();
   return (
     <header className={s.header}>
       <Container className={s.containerFlex}>
-        {!isAuth && <Logo />}
+        {!isAuth && !isRefreshing && <Logo />}
         <Navigation isAuth={isAuth} />
-        {isAuth && (
+        {(isAuth || isRefreshing) && (
           <>
             <Logo />
             <UserBar />

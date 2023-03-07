@@ -29,13 +29,15 @@ export const registerUserApi = async (userData) => {
   }
 };
 
-export const loginUserApi = (userData) => {
-  return axios
-    .post(path.LOGIN, userData)
-    .then(({ data: { token: userToken } }) => {
-      token.set(userToken);
-      return token;
-    });
+export const loginUserApi = async (credentials) => {
+  try {
+    const { data } = await axios.post(path.LOGIN, credentials);
+    token.set(data.token);
+    const userData = await getCurUserApi(data.token);
+    return { ...userData, token: data.token };
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const logoutUserApi = () => {
@@ -45,7 +47,12 @@ export const logoutUserApi = () => {
   });
 };
 
-export const getCurUserApi = (userToken) => {
+export const getCurUserApi = async (userToken) => {
   token.set(userToken);
-  return axios.get(path.CUR_USER).then((res) => res.data);
+  try {
+    const { data } = await axios.get(path.CUR_USER);
+    return data;
+  } catch (error) {
+    throw error;
+  }
 };

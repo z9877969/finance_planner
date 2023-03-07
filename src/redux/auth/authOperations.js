@@ -5,6 +5,7 @@ import {
   logoutUserApi,
   registerUserApi,
 } from "../../utils/api/onrenderApi";
+import { logOut } from "./authSlice";
 
 export const registerUser = createAsyncThunk(
   "auth/register",
@@ -22,8 +23,8 @@ export const loginUser = createAsyncThunk(
   "auth/login",
   async (dataForm, { rejectWithValue }) => {
     try {
-      const token = await loginUserApi(dataForm);
-      return token; // token
+      const userData = await loginUserApi(dataForm);
+      return userData; // token
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -32,7 +33,7 @@ export const loginUser = createAsyncThunk(
 
 export const getCurUser = createAsyncThunk(
   "auth/current/user",
-  async (_, { getState, rejectWithValue }) => {
+  async (_, { getState, rejectWithValue, dispatch }) => {
     const {
       auth: { token },
     } = getState();
@@ -40,6 +41,9 @@ export const getCurUser = createAsyncThunk(
       const data = await getCurUserApi(token);
       return data; // {name, email, balance}
     } catch (error) {
+      setTimeout(() => {
+        dispatch(logOut());
+      }, 0);
       return rejectWithValue(error.meassge);
     }
   },

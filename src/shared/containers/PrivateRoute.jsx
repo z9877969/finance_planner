@@ -1,11 +1,12 @@
-import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { selectorIsAuth } from "../../redux/auth/authSelectors";
+import { useAuth } from "../hooks/useAuth";
 
 const PrivateRoute = ({ component }) => {
-  const isAuth = useSelector(selectorIsAuth);
+  const { shouldRedirect } = useAuth();
 
-  return isAuth ? component : <Navigate to="/" />;
+  console.log("shouldRedirect", shouldRedirect);
+
+  return shouldRedirect ? <Navigate to="/" /> : component;
 };
 
 export default PrivateRoute;
