@@ -1,21 +1,13 @@
-import { InputsList } from "../modules/CashFlowPage";
+import {
+  InputsList,
+  resultFormOptions as options,
+} from "../modules/CashFlowPage";
 import {
   PageWrapper,
   Container,
   Section,
   ResultForm,
 } from "../shared/components";
-
-const options = [
-  {
-    name: "dairyLimit",
-    title: "Daily limit",
-  },
-  {
-    name: "monthLimit",
-    title: "Deviation from the planned accumulation amount",
-  },
-];
 
 const CashFlowPage = () => {
   return (

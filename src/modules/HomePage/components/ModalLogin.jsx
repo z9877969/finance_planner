@@ -1,11 +1,18 @@
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Modal from "../../../shared/components/Modal/Modal";
 import AuthForm from "./AuthForm/AuthForm";
 import { loginFormOptions as options } from "../data/formOptions";
 import { initialLoginFormValues as initialValues } from "../data/initialFormValues";
+import { loginUser } from "../../../redux/auth/authOperations";
 
 const ModalLogin = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const handleSubmit = (form) => {
+    dispatch(loginUser(form));
+  };
 
   return (
     <Modal closeModal={() => navigate("/")}>
@@ -14,7 +21,7 @@ const ModalLogin = () => {
         initialValue={initialValues}
         btnTitle="Sign In"
         title={"Log in"}
-        onSubmit={(data) => console.log(data)}
+        onSubmit={handleSubmit}
       />
     </Modal>
   );

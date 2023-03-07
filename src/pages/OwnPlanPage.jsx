@@ -1,11 +1,13 @@
-import { InputsList } from "../modules/OwnPlanPage";
+import {
+  InputsList,
+  resultFormOptions as options,
+} from "../modules/OwnPlanPage";
 import {
   Container,
   Section,
   PageWrapper,
   ResultForm,
 } from "../shared/components";
-import { options } from "../modules/OwnPlanPage";
 
 const OwnPlanPage = () => {
   return (

@@ -17,9 +17,9 @@ const AuthForm = ({ options, initialValue, title, onSubmit, btnTitle }) => {
   return (
     <form className={s.form} onSubmit={handleSubmit}>
       <h3 className={s.title}>{title}</h3>
-      {options.map(({ name, type, placeholder }) => (
-        <label>
-          <p className={s.label}>Name</p>
+      {options.map(({ name, type, label, placeholder }) => (
+        <label key={name}>
+          <p className={s.label}>{label}</p>
           <input
             type={type}
             name={name}

@@ -1,10 +1,19 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Header } from "./modules/Header";
 import { ModalLogin, ModalRegister } from "./modules/HomePage";
 import { CashFlowPage, HomePage, OwnPlanPage } from "./pages";
+import { getCurUser } from "./redux/auth/authOperations";
 import { PrivateRoute, PublicRoute } from "./shared/containers";
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCurUser());
+  }, [dispatch]);
+
   return (
     <>
       <Header />
@@ -21,14 +30,14 @@ const App = () => {
           path="/cash-flow"
           element={<PrivateRoute component={<CashFlowPage />} />}
         />
+        <Route
+          path="/dynamics"
+          element={<PrivateRoute component={<h1>DynamicsPage</h1>} />}
+        />
         <Route path="*" element={<Navigate to={"/"} />} />
       </Routes>
     </>
   );
 };
-
-// - /plan - рендерить компонент OwnPlanPage +
-// - /cash-flow - рендерить компонент ExpensesPage +
-// - /dynamics - рендерить компонент DynamicsPage
 
 export default App;

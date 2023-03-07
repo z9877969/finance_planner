@@ -4,9 +4,9 @@ import s from "./ResultForm.module.scss";
 const ResultForm = ({ title, labelPosition = "over", options, form = {} }) => {
   return (
     <div className={s.wrapper}>
-      {title && <h3 className={s.title}>You will have an apartment in:</h3>}
+      {title && <h3 className={s.title}>{title}</h3>}
       <form className={s.form}>
-        {options.map(({ type = "text", ...el }) => (
+        {options.fields.map(({ type = "text", ...el }) => (
           <label
             key={el.name}
             className={clsx(s.label, labelPosition === "under" && s.under)}
@@ -24,7 +24,7 @@ const ResultForm = ({ title, labelPosition = "over", options, form = {} }) => {
           className={clsx(s.btnSubmit, labelPosition === "under" && s.under)}
           type="submit"
         >
-          Fits
+          {options.btnSubmit}
         </button>
       </form>
     </div>
