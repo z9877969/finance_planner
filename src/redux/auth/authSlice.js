@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
+  addBaseBalance,
   getCurUser,
   loginUser,
   logoutUser,
@@ -55,7 +56,10 @@ const authSlice = createSlice({
       .addCase(logoutUser.rejected, () => ({
         ...initialState,
         isRefreshing: false,
-      }));
+      }))
+      .addCase(addBaseBalance.fulfilled, (state, { payload }) => {
+        state.user.balance = payload;
+      });
   },
 });
 

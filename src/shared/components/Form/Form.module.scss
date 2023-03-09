@@ -1,4 +1,4 @@
-@import "../../../../assets/styles/mixins";
+@import "../../../assets/styles/mixins";
 
 .form {
   width: 400px;
@@ -56,6 +56,12 @@
   line-height: 20px;
   color: var(--color-light);
   margin-bottom: 44px;
+}
+
+.btnWrapper {
+  display: flex;
+  margin: 0 auto;
+  column-gap: 14px;
 }
 
 .btnSubmit {

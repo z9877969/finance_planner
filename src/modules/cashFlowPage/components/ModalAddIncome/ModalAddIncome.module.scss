@@ -1,0 +1,6 @@
+@import "../../../../assets/styles/mixins";
+
+.btnCancel {
+  @include button(light, 138px, 40px, var(--color-black));
+  align-self: flex-end;
+}

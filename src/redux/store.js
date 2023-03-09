@@ -11,6 +11,7 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import authReducer from "./auth/authSlice";
+import planReducer from "./plan/planSlice";
 import loadingReducer from "./loading/loadingSlice";
 
 const authPersistConfig = {
@@ -24,6 +25,7 @@ const authPersistReducer = persistReducer(authPersistConfig, authReducer);
 export const store = configureStore({
   reducer: {
     auth: authPersistReducer,
+    plan: planReducer,
     isLoading: loadingReducer,
   },
   middleware: (getDefaultMiddleware) =>

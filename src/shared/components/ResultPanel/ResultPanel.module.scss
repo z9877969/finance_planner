@@ -66,12 +66,23 @@
   &:focus {
     outline: none;
   }
+
+  &:disabled {
+    background: none;
+  }
+}
+
+.btnWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 14px;
+  margin-left: auto;
 }
 
 .btnSubmit {
   @include button(light, 200px, 46px, null);
   align-self: flex-end;
-  margin-left: auto;
 
   &.under {
     align-self: flex-start;

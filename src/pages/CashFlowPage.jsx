@@ -1,15 +1,28 @@
+import { useState } from "react";
 import {
-  InputsList,
-  resultFormOptions as options,
+  ExpensesLimits,
+  ModalAddIncome,
+  TransactionDataList,
 } from "../modules/cashFlowPage";
-import { PageWrapper, ResultForm } from "../shared/components";
+import { PageWrapper } from "../shared/components";
 
 const CashFlowPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen((p) => !p);
+  };
+
   return (
-    <PageWrapper>
-      <InputsList />
-      <ResultForm labelPosition="under" options={options} />
-    </PageWrapper>
+    <>
+      <PageWrapper>
+        <form>
+          <TransactionDataList />
+          <ExpensesLimits openModal={toggleModal} />
+        </form>
+      </PageWrapper>
+      {isModalOpen && <ModalAddIncome closeModal={toggleModal} />}
+    </>
   );
 };
 

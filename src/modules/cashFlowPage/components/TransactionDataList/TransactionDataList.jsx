@@ -1,8 +1,12 @@
+import { useState } from "react";
 import InputsListItem from "../../../../shared/components/InputsListItem/InputsListItem";
 import CategorySelect from "../CategorySelect/CategorySelect";
-import s from "./InputsList.module.scss";
+import s from "./TransactionDataList.module.scss";
 
 const InputsList = () => {
+
+  const [form, setForm] = useState({})
+
   return (
     <ul className={s.list}>
       <InputsListItem

@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
+  addBaseBalanceApi,
   getCurUserApi,
   loginUserApi,
   logoutUserApi,
@@ -61,6 +62,18 @@ export const logoutUser = createAsyncThunk(
     try {
       await logoutUserApi();
       return null;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const addBaseBalance = createAsyncThunk(
+  "auth/addBalance",
+  async (balance, { rejectWithValue }) => {
+    try {
+      const newBalance = await addBaseBalanceApi(balance);
+      return newBalance;
     } catch (error) {
       return rejectWithValue(error.message);
     }

@@ -11,7 +11,6 @@ const UserBar = () => {
   return (
     <div className={s.wrapper}>
       <p className={s.avatar}>{userName[0]?.toUpperCase()}</p>
-      <p className={s.nickName}>{userName}</p>
       <button
         className={s.btnLogout}
         type="button"

@@ -16,6 +16,9 @@ const path = {
   LOGIN: "/user/login",
   LOGOUT: "/user/logout",
   CUR_USER: "/user/info",
+  BALANCE: "/user/addBalance",
+  PLAN_PRE: "/personal-plan/pre",
+  PLAN: "/personal-plan",
 };
 
 export const registerUserApi = async (userData) => {
@@ -51,6 +54,51 @@ export const getCurUserApi = async (userToken) => {
   token.set(userToken);
   try {
     const { data } = await axios.get(path.CUR_USER);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const addBaseBalanceApi = async (balance) => {
+  try {
+    const { data } = await axios.put(path.BALANCE, { balance });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const createPrePlanApi = async (prePlanData) => {
+  try {
+    const { data } = await axios.post(path.PLAN_PRE, prePlanData);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const addPlanApi = async (planData) => {
+  try {
+    const { data } = await axios.post(path.PLAN, planData);
+    return data.newBalance;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getPlanApi = async () => {
+  try {
+    const { data } = await axios.get(path.PLAN);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const editPlanApi = async (newPlanData) => {
+  try {
+    const { data } = await axios.put(path.PLAN, newPlanData);
     return data;
   } catch (error) {
     throw error;

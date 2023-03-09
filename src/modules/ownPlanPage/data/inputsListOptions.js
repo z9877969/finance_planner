@@ -1,13 +1,13 @@
-import InputSelect from "../components/InputSelect/InputSelect";
+// import InputSelect from "../components/InputSelect/InputSelect";
 
 export const inputsListOptions = [
   {
-    name: "income",
+    name: "salary",
     title: "RFP of both spouses",
     placeholder: "Enter data",
   },
   {
-    name: "passive",
+    name: "passiveIncome",
     title: "Passive income, months",
     placeholder: "Enter data",
   },
@@ -20,15 +20,15 @@ export const inputsListOptions = [
     name: "cost",
     title: "Specify the cost of your future apartment",
     placeholder: "Enter data",
-    component: InputSelect,
+    // component: InputSelect,
   },
   {
-    name: "square",
+    name: "footage",
     title: "Specify the number of sq.m. of your future apartment",
     placeholder: "Enter data",
   },
   {
-    name: "accumulation",
+    name: "procent",
     title: "Accumulation",
     placeholder: "Enter data",
     descr:

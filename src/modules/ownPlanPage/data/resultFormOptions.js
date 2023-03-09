@@ -2,7 +2,7 @@ export const resultFormOptions = {
   fields: [
     {
       title: "Number of years",
-      name: "years",
+      name: "year",
     },
     {
       title: "Number of month",

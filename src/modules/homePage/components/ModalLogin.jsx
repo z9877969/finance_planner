@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Modal from "../../../shared/components/Modal/Modal";
-import AuthForm from "./AuthForm/AuthForm";
+import { Modal, Form } from "../../../shared/components";
 import { loginFormOptions as options } from "../data/formOptions";
 import { initialLoginFormValues as initialValues } from "../data/initialFormValues";
 import { loginUser } from "../../../redux/auth/authOperations";
@@ -16,7 +15,7 @@ const ModalLogin = () => {
 
   return (
     <Modal closeModal={() => navigate("/")}>
-      <AuthForm
+      <Form
         options={options}
         initialValue={initialValues}
         btnTitle="Sign In"

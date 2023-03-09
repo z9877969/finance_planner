@@ -1,7 +1,14 @@
 import { useState } from "react";
-import s from "./AuthForm.module.scss";
+import s from "./Form.module.scss";
 
-const AuthForm = ({ options, initialValue, title, onSubmit, btnTitle }) => {
+const Form = ({
+  options,
+  initialValue,
+  title,
+  onSubmit,
+  btnTitle,
+  children,
+}) => {
   const [form, setForm] = useState(initialValue);
 
   const handleChange = (e) => {
@@ -19,7 +26,7 @@ const AuthForm = ({ options, initialValue, title, onSubmit, btnTitle }) => {
       <h3 className={s.title}>{title}</h3>
       {options.map(({ name, type, label, placeholder }) => (
         <label key={name}>
-          <p className={s.label}>{label}</p>
+          {label && <p className={s.label}>{label}</p>}
           <input
             type={type}
             name={name}
@@ -29,11 +36,14 @@ const AuthForm = ({ options, initialValue, title, onSubmit, btnTitle }) => {
           />
         </label>
       ))}
-      <button className={s.btnSubmit} type="submit">
-        {btnTitle}
-      </button>
+      <div className={s.btnWrapper}>
+        <button className={s.btnSubmit} type="submit">
+          {btnTitle}
+        </button>
+        {children}
+      </div>
     </form>
   );
 };
 
-export default AuthForm;
+export default Form;

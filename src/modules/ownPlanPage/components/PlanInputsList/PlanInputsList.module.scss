@@ -10,3 +10,14 @@
   row-gap: 32px;
   column-gap: 30px;
 }
+
+.input {
+  border: 1px solid var(--color-light);
+  border-radius: 6px;
+  font-size: 24px;
+  padding: 8px;
+  &:disabled {
+    background: none;
+    // background-color: red;
+  }
+}
