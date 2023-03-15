@@ -1,7 +1,7 @@
 export const resultFormOptions = {
   fields: [
     {
-      name: "dairyLimit",
+      name: "dailyLimit",
       title: "Daily limit",
     },
     {

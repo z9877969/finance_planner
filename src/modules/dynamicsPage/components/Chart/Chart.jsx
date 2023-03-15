@@ -51,7 +51,7 @@ const labels = [
 ];
 
 export const data = {
-  labels,
+  labels: labels.map((el) => el.slice(0, 3)),
   datasets: [
     {
       label: "Dataset 1",
@@ -73,11 +73,11 @@ export const data = {
 
 const Chart = () => {
   return (
-    <>
+    <div className={s.container}>
       <h2 className={s.title}>Dynamics of expenses and savings</h2>
       <Markers />
       <Bar options={options} data={data} />
-    </>
+    </div>
   );
 };
 

@@ -50,7 +50,7 @@ const planSlice = createSlice({
       })
       .addCase(createPrePlan.fulfilled, (state, { payload }) => {
         const { planData, accumulationPeriod } = separatePlanData(payload);
-        state.planData = planData;
+        state.planData = { ...planData, id: state.planData.id };
         state.accumulationPeriod = accumulationPeriod;
       })
       .addCase(addPlan.fulfilled, (state, { payload }) => {

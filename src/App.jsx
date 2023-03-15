@@ -34,6 +34,13 @@ const App = () => {
           path="/dynamics"
           element={<PrivateRoute component={<DynamicsPage />} />}
         />
+        <Route
+          path="/statistics"
+          element={<PrivateRoute component={<DynamicsPage />} />}
+        >
+          <Route path="transactions" element={<h1>TransactionsList</h1>} />
+          <Route path="categories" element={<h1>CategoriesList</h1>} />
+        </Route>
         <Route path="*" element={<Navigate to={"/"} />} />
       </Routes>
     </>

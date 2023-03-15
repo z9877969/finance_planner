@@ -7,6 +7,7 @@ const loaderRoot = document.querySelector("#loader-root");
 
 const LoaderProvider = ({ children }) => {
   const isLoading = useSelector((state) => state.isLoading);
+  // const isLoading = useSelector((state) => false);
 
   const [list, setList] = useState(null);
 

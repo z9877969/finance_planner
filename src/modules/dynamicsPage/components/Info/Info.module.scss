@@ -1,0 +1,129 @@
+@import "../../../../assets/styles/mixins";
+
+.wrapper {
+  width: 570px;
+}
+
+.allInfoWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.dataWrapper {
+  width: 270px;
+  //   margin-right: 46px;
+}
+
+.periodToFinish {
+  font-size: 12px;
+  line-height: 12px;
+  margin-bottom: 61px;
+}
+
+.dataList {
+  margin-bottom: 39px;
+}
+
+.dataItem {
+  width: 224px;
+  display: flex;
+  justify-content: space-between;
+
+  &:not(:last-child) {
+    margin-bottom: 7px;
+  }
+
+  & p {
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.02;
+  }
+
+  & p:first-child {
+    color: #f3f3f366;
+  }
+
+  & p:last-child {
+    color: var(--color-light);
+  }
+
+  & img {
+    width: 9px;
+    display: inline-block;
+    margin-left: 4px;
+  }
+}
+
+.flatDrawImg {
+  width: 209px;
+}
+
+.detectorTitle {
+  margin-bottom: 8px;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.13px;
+}
+
+.detectorMainBar {
+  position: relative;
+  width: 270px;
+  height: 5px;
+  background-color: #d8d8d8;
+}
+
+.detectorSecondaryBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 75px;
+  height: 5px;
+  background-color: var(--marker-bg-expense);
+}
+
+.detectorMainBar,
+.detectorSecondaryBar {
+  border-radius: 3px;
+}
+
+.motivation {
+  padding-top: 64px;
+  padding-bottom: 56px;
+  padding-left: 60px;
+  border-radius: 16px;
+  background-color: #1f2534;
+  background-image: url(../../images/gift.png);
+  background-repeat: no-repeat;
+  background-position: calc(351px - 18px) 54px;
+  background-size: 159px 158px;
+}
+
+.motivationDescr {
+  width: 226px;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.02;
+  margin-bottom: 24px;
+
+  & span {
+    color: #3a6af5;
+  }
+}
+
+.motivationMeterPrice {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 43px;
+  letter-spacing: 0.02em;
+  color: #f3f3f3;
+
+  & img {
+    width: 20px;
+    display: inline-block;
+    margin-left: 16px;
+  }
+}
+
+.motivationMeterPrice {
+}

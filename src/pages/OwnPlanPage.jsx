@@ -21,7 +21,9 @@ const OwnPlanPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    !newPlanData.id ? dispatch(addPlan(newPlanData)) : console.log("EDIT PLAN"); // dispatch(editPlan(newPlanData));
+    !newPlanData.id
+      ? dispatch(addPlan(newPlanData))
+      : dispatch(editPlan(newPlanData)); 
   };
 
   useEffect(() => {

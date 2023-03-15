@@ -7,6 +7,7 @@ const CategorySelect = ({ setValue = () => {} }) => {
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
+    console.log("useEffect_select");
     selected && setValue(selected.value);
   }, [selected, setValue]);
 
@@ -22,15 +23,3 @@ const CategorySelect = ({ setValue = () => {} }) => {
 };
 
 export default CategorySelect;
-
-// <div class="react-select-container">
-//   <div class="react-select__control">
-//     <div class="react-select__value-container">...</div>
-//     <div class="react-select__indicators">...</div>
-//   </div>
-//   <div class="react-select__menu">
-//     <div class="react-select__menu-list">
-//       <div class="react-select__option">...</div>
-//     </div>
-//   </div>
-// </div>

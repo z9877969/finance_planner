@@ -40,3 +40,10 @@
     transform: scale(0.95);
   }
 }
+
+@mixin light-color($_alpha) {
+  @if $_alpha != null {
+    color: var(--color-light) $_alpha;
+  }
+
+}

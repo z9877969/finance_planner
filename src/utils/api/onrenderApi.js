@@ -19,6 +19,7 @@ const path = {
   BALANCE: "/user/addBalance",
   PLAN_PRE: "/personal-plan/pre",
   PLAN: "/personal-plan",
+  CASHFLOW_LIMIT: "/cashflow/presaving",
 };
 
 export const registerUserApi = async (userData) => {
@@ -104,3 +105,38 @@ export const editPlanApi = async (newPlanData) => {
     throw error;
   }
 };
+
+export const getCashflowLimitsApi = async () => {
+  try {
+    const { data } = await axios.get(path.CASHFLOW_LIMIT);
+
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const addTransactionApi = async (transaction) => {
+  try {
+    const { data } = await axios.post("/cashflow", transaction);
+    console.log("data :>> ", data);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+// {
+//   "totalByMounth": [
+//       {
+//           "amount": 60000
+//       }
+//   ],
+//   "totalByDay": [
+//       {
+//           "_id": "2023-03-09",
+//           "amount": 60000
+//       }
+//   ],
+//   "monthLimit": 104000,
+//   "dailyLimit": 3374.8387096774195
+// }

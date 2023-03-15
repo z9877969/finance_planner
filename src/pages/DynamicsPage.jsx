@@ -1,13 +1,27 @@
-import { PageWrapper } from "../shared/components";
+import { Container, Section } from "../shared/components";
 import { Chart, Info, Statistic } from "../modules/dynamicsPage";
 
 const DynamicsPage = () => {
   return (
-    <PageWrapper>
-      <Chart />
-      <Statistic />
-      <Info />
-    </PageWrapper>
+    // <PageWrapper>
+    <Section>
+      <Container>
+        <div
+          style={{
+            display: "flex",
+            paddingTop: "66px",
+            justifyContent: "space-between",
+          }}
+        >
+          <div style={{ width: "461px" }}>
+            <Chart />
+            <Statistic />
+          </div>
+          <Info />
+        </div>
+      </Container>
+    </Section>
+    // </PageWrapper>
   );
 };
 

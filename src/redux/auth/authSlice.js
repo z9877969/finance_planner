@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { addTransaction } from "../cashflow/cashflowOperations";
 import {
   addBaseBalance,
   getCurUser,
@@ -59,6 +60,9 @@ const authSlice = createSlice({
       }))
       .addCase(addBaseBalance.fulfilled, (state, { payload }) => {
         state.user.balance = payload;
+      })
+      .addCase(addTransaction.fulfilled, (state, { payload }) => {
+        state.user.balance = payload.newBalance;
       });
   },
 });

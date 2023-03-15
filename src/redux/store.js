@@ -12,6 +12,7 @@ import {
 import storage from "redux-persist/lib/storage";
 import authReducer from "./auth/authSlice";
 import planReducer from "./plan/planSlice";
+import cashflowReducer from "./cashflow/cashflowSlice";
 import loadingReducer from "./loading/loadingSlice";
 
 const authPersistConfig = {
@@ -26,6 +27,7 @@ export const store = configureStore({
   reducer: {
     auth: authPersistReducer,
     plan: planReducer,
+    cashflow: cashflowReducer,
     isLoading: loadingReducer,
   },
   middleware: (getDefaultMiddleware) =>
