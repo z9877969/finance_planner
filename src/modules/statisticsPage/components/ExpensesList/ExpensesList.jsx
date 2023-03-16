@@ -13,15 +13,15 @@ const ExpensesList = () => {
         <li key={el.id} className={s.item}>
           <div className={s.descrWrapper}>
             <p className={s.mainDescr}>
-              <span className={s.date}>12.09.2020</span>
-              <span className={s.comment}>Cat food</span>
+              <span className={s.date}>{el.date}</span>
+              <span className={s.comment}>{el.comment}</span>
             </p>
             <p className={s.sum}>
-              <span className={s.amount}>200</span>
-              <span className={s.currency}>UAH</span>
+              <span className={s.amount}>{el.sum}</span>
+              <span className={s.currency}>{el.currency}</span>
             </p>
           </div>
-          <p className={s.category}>House</p>
+          <p className={s.category}>{el.category}</p>
           <div className={s.btnsWrapper}>
             <button type="button" className={s.btnEdit}>
               <img src={pencil} alt="" />
