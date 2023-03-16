@@ -1,0 +1,46 @@
+.item {
+  display: flex;
+  height: 70px;
+  align-items: center;
+
+  padding-left: 32px;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba(243, 243, 243, 0.06);
+  }
+}
+
+.descrWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 383px;
+  border-right: 1px solid rgba(243, 243, 243, 0.06);
+}
+
+.category {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.sum {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+.amount {
+  display: inline-block;
+}
+
+.procent {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-right: 215px;
+  margin-left: auto;
+}
