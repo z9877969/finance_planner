@@ -1,0 +1,90 @@
+.item {
+  display: flex;
+  height: 70px;
+  align-items: center;
+
+  padding-left: 32px;
+  padding-right: 32px;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba(243, 243, 243, 0.06);
+  }
+}
+
+.descrWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 402px;
+  height: 40px;
+  padding-right: 24px;
+  border-right: 1px solid rgba(243, 243, 243, 0.06);
+}
+
+.mainDescr {
+  display: flex;
+  flex-direction: column;
+}
+
+.date {
+  margin-bottom: 3px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: rgba(243, 243, 243, 0.3);
+}
+
+.comment {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.amount,
+.currency {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+.category {
+  margin-left: 24px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+
+  color: #ffffff;
+}
+
+.btnsWrapper {
+  display: flex;
+  column-gap: 14px;
+  margin-left: auto;
+}
+
+.btnEdit,
+.btnRemove {
+  border: none;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+}
+
+.btnEdit {
+  & img {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.btnRemove {
+  & img {
+    width: 22px;
+    height: 22px;
+  }
+}

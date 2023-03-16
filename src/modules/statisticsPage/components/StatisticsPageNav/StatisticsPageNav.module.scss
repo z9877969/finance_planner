@@ -1,0 +1,31 @@
+.wrapper {
+  display: flex;
+}
+
+.navLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 56px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  background-color: rgba(31, 37, 52, 0.4);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--color-white);
+
+  &:first-child {
+    width: 90px;
+  }
+  &:last-child {
+    width: 116px;
+  }
+
+  &.active {
+    border-top: 1px solid #3a6af5;
+    background-color: #252c41;
+    color: #f3f3f340;
+  }
+}

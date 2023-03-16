@@ -5,7 +5,7 @@ const PageWrapper = ({ children }) => {
   return (
     <Section>
       <Container>
-        <div className={s.wrapper}>{children}</div>;
+        <div className={s.wrapper}>{children}</div>
       </Container>
     </Section>
   );

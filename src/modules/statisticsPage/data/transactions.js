@@ -1,0 +1,60 @@
+import { v4 as uuidv4 } from "uuid";
+
+export const transactions = [
+  {
+    id: uuidv4(),
+    date: "12.09.2022",
+    category: "House",
+    sum: "150",
+    currency: "UAH",
+    comment: "Cat food",
+  },
+  {
+    id: uuidv4(),
+    date: "12.09.2022",
+    category: "House",
+    sum: "150",
+    currency: "UAH",
+    comment: "Cat food",
+  },
+  {
+    id: uuidv4(),
+    date: "12.09.2022",
+    category: "House",
+    sum: "150",
+    currency: "UAH",
+    comment: "Cat food",
+  },
+  {
+    id: uuidv4(),
+    date: "12.09.2022",
+    category: "House",
+    sum: "150",
+    currency: "UAH",
+    comment: "Cat food",
+  },
+  {
+    id: uuidv4(),
+    date: "12.09.2022",
+    category: "House",
+    sum: "150",
+    currency: "UAH",
+    comment: "Cat food",
+  },
+  {
+    id: uuidv4(),
+    date: "12.09.2022",
+    category: "House",
+    sum: "150",
+    currency: "UAH",
+    comment: "Cat food",
+  },
+  {
+    id: uuidv4(),
+    date: "12.09.2022",
+    category: "House",
+    sum: "150",
+    currency: "UAH",
+    comment: "Cat food",
+  },
+];
