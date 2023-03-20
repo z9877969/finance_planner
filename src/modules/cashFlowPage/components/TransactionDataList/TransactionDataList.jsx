@@ -2,18 +2,14 @@ import { useCallback, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { selectorBalance } from "../../../../redux/auth/authSelectors";
 import InputsListItem from "../../../../shared/components/InputsListItem/InputsListItem";
-import CategorySelect from "../CategorySelect/CategorySelect";
+import CategorySelect from "../../../../shared/components/CategorySelect/CategorySelect";
 import s from "./TransactionDataList.module.scss";
+import { expenseInitialState } from "../../data/transactionInitialState";
 
-const TransactionDataList = ({ setData, isParentUpdate }) => {
+const TransactionDataList = ({ setData, isSubmiting }) => {
   const balance = useSelector(selectorBalance);
 
-  const [form, setForm] = useState({
-    type: "expense",
-    category: "",
-    coment: "",
-    sum: 0,
-  });
+  const [form, setForm] = useState(expenseInitialState);
 
   const handleCategory = useCallback((category) => {
     setForm((p) => ({ ...p, category }));
@@ -29,10 +25,17 @@ const TransactionDataList = ({ setData, isParentUpdate }) => {
   };
 
   useEffect(() => {
-    setData(form);
-    console.log("useEffect_isParrent");
+    isSubmiting && setData(form);
     // eslint-disable-next-line
-  }, [isParentUpdate]);
+  }, [isSubmiting]);
+
+  useEffect(() => {
+    if (balance && !isSubmiting) {
+      setForm(expenseInitialState);
+      setData(null);
+    }
+    // eslint-disable-next-line
+  }, [balance, setData]);
 
   return (
     <ul className={s.list}>
@@ -42,14 +45,17 @@ const TransactionDataList = ({ setData, isParentUpdate }) => {
         placeholder="Enter data"
         value={balance}
       />
-      <InputsListItem>
-        <CategorySelect setValue={handleCategory} />
+      <InputsListItem title={"Per category"}>
+        <CategorySelect
+          setValue={handleCategory}
+          isResetCategory={!form.category}
+        />
       </InputsListItem>
       <InputsListItem
-        name="coment"
+        name="comment"
         title="Expense comment"
         placeholder="Enter data"
-        value={form.coment}
+        value={form.comment}
         onChange={handleChange}
       />
       <InputsListItem

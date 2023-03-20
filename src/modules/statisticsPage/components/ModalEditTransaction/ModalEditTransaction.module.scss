@@ -1,0 +1,17 @@
+@import "../../../../assets/styles/mixins";
+
+.wrapper {
+  padding: 68px 34px;
+  background-color: #191d28;
+  box-shadow: 0px 24px 38px rgba(0, 0, 0, 0.14),
+    0px 9px 46px rgba(0, 0, 0, 0.12), 0px 11px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 18px;
+}
+
+.btnSubmit {
+  margin-top: 24px;
+  @include button(dark, 150px, 40px, var(--color-light));
+}

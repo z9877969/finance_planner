@@ -78,6 +78,10 @@
   align-items: center;
   row-gap: 14px;
   margin-left: auto;
+
+  &.btnReverse {
+    flex-direction: column-reverse;
+  }
 }
 
 .btnSubmit {

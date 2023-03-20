@@ -5,15 +5,14 @@ import { useSelector } from "react-redux";
 const root = document.querySelector("#root");
 const loaderRoot = document.querySelector("#loader-root");
 
-const LoaderProvider = ({ children }) => {
+const Loader = ({ children }) => {
   const isLoading = useSelector((state) => state.isLoading);
-  // const isLoading = useSelector((state) => false);
 
-  const [list, setList] = useState(null);
+  const [dots, setDots] = useState(null);
 
   useEffect(() => {
     const id = setInterval(() => {
-      setList((p) => (p === null || p.length === 3 ? [""] : [...p, ""]));
+      setDots((p) => (p === null || p.length === 3 ? [""] : [...p, ""]));
     }, 650);
 
     return () => {
@@ -45,7 +44,7 @@ const LoaderProvider = ({ children }) => {
           >
             <h1 style={{ width: "202px", fontSize: "48px", color: "#fff" }}>
               Loading
-              {list?.map(() => ".")}
+              {dots?.map(() => ".")}
             </h1>
           </div>,
           loaderRoot
@@ -55,4 +54,4 @@ const LoaderProvider = ({ children }) => {
   );
 };
 
-export default LoaderProvider;
+export default Loader;

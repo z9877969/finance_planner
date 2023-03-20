@@ -6,13 +6,13 @@ import s from "./Header.module.scss";
 import { useAuth } from "../../../shared/hooks/useAuth";
 
 const Header = () => {
-  const { isAuth, isRefreshing } = useAuth();
+  const { isAuth } = useAuth();
   return (
     <header className={s.header}>
       <Container className={s.containerFlex}>
-        {!isAuth && !isRefreshing && <Logo />}
+        {!isAuth && <Logo />}
         <Navigation isAuth={isAuth} />
-        {(isAuth || isRefreshing) && (
+        {isAuth && (
           <>
             <Logo />
             <UserBar />

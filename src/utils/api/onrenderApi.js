@@ -20,6 +20,8 @@ const path = {
   PLAN_PRE: "/personal-plan/pre",
   PLAN: "/personal-plan",
   CASHFLOW_LIMIT: "/cashflow/presaving",
+  TRANSACTIONS: "/cashflow",
+  CATEGORIES: "/cashflow/category",
 };
 
 export const registerUserApi = async (userData) => {
@@ -82,7 +84,7 @@ export const createPrePlanApi = async (prePlanData) => {
 export const addPlanApi = async (planData) => {
   try {
     const { data } = await axios.post(path.PLAN, planData);
-    return data.newBalance;
+    return data;
   } catch (error) {
     throw error;
   }
@@ -118,25 +120,45 @@ export const getCashflowLimitsApi = async () => {
 
 export const addTransactionApi = async (transaction) => {
   try {
-    const { data } = await axios.post("/cashflow", transaction);
-    console.log("data :>> ", data);
+    const { data } = await axios.post(path.TRANSACTIONS, transaction);
     return data;
   } catch (error) {
     throw error;
   }
 };
-// {
-//   "totalByMounth": [
-//       {
-//           "amount": 60000
-//       }
-//   ],
-//   "totalByDay": [
-//       {
-//           "_id": "2023-03-09",
-//           "amount": 60000
-//       }
-//   ],
-//   "monthLimit": 104000,
-//   "dailyLimit": 3374.8387096774195
-// }
+
+export const editTransactionApi = async ({ transaction, id }) => {
+  try {
+    const { data } = await axios.put(path.TRANSACTIONS + "/" + id, transaction);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getTransactionsApi = async ({ month, year }) => {
+  try {
+    const params =
+      month && year
+        ? { month, year }
+        : month
+        ? { month }
+        : year
+        ? { year }
+        : {};
+    const { data } = await axios.get(path.TRANSACTIONS, { params });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getCategoriesApi = async () => {
+  try {
+    const { data } = await axios.get(path.CATEGORIES);
+
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};

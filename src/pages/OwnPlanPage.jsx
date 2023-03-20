@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { PeriodPlanExecution, PlanInputsList } from "../modules/ownPlanPage";
 import ModalAddBalance from "../modules/ownPlanPage/components/ModalAddBalance/ModalAddBalance";
@@ -12,18 +12,18 @@ const OwnPlanPage = () => {
   const dispatch = useDispatch();
   const isExistBalance = useSelector(selectorIsExistBalance);
   const newPlanData = useSelector(selectorPlanData);
-  const { isAuth } = useAuth();
+  const { isUserExist } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const toggleModal = () => {
-    setIsModalOpen((p) => !p);
-  };
+  const toggleModal = useCallback(() => {
+    setIsModalOpen((p) => (p === false && isExistBalance ? p : !p));
+  }, [isExistBalance]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     !newPlanData.id
       ? dispatch(addPlan(newPlanData))
-      : dispatch(editPlan(newPlanData)); 
+      : dispatch(editPlan(newPlanData));
   };
 
   useEffect(() => {
@@ -31,15 +31,15 @@ const OwnPlanPage = () => {
   }, [isExistBalance]);
 
   useEffect(() => {
-    isAuth && dispatch(getPlan());
-  }, [dispatch, isAuth]);
+    isUserExist && dispatch(getPlan());
+  }, [dispatch, isUserExist]);
 
   return (
     <>
       <PageWrapper>
         <form onSubmit={handleSubmit}>
           <PlanInputsList />
-          <PeriodPlanExecution />
+          <PeriodPlanExecution openModalAddBalance={toggleModal} />
         </form>
         {isModalOpen && <ModalAddBalance closeModal={toggleModal} />}
       </PageWrapper>

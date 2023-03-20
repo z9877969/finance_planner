@@ -4,11 +4,8 @@ import { selectorBalance } from "../../../../redux/auth/authSelectors";
 import { addTransaction } from "../../../../redux/cashflow/cashflowOperations";
 import { Form, Modal } from "../../../../shared/components";
 import { modalAddIncomeOptions as options } from "../../data/modalAddIncomeOptions";
+import { incomeInitialState } from "../../data/transactionInitialState";
 import s from "./ModalAddIncome.module.scss";
-
-const initialValues = {
-  income: "",
-};
 
 const ModalAddIncome = ({ closeModal }) => {
   const d = useDispatch();
@@ -34,7 +31,7 @@ const ModalAddIncome = ({ closeModal }) => {
     <Modal closeModal={closeModal}>
       <Form
         options={options}
-        initialValue={initialValues}
+        initialValue={incomeInitialState}
         btnTitle="Add"
         onSubmit={handleSubmit}
       >

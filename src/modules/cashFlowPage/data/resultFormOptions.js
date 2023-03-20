@@ -6,7 +6,7 @@ export const resultFormOptions = {
     },
     {
       name: "monthLimit",
-      title: "Deviation from the planned accumulation amount",
+      title: "Monthly limit",
     },
   ],
   btnSubmit: "Ready",

@@ -1,11 +1,8 @@
-import { useState } from "react";
 import ReactDatepicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import s from "./MonthPeriod.module.scss";
 
-const MonthPeriod = () => {
-  const [date, setDate] = useState(() => new Date());
-
+const MonthPeriod = ({ date, setDate }) => {
   return (
     <div className={s.wrapper}>
       <ReactDatepicker

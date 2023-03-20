@@ -16,16 +16,15 @@ const cashflowSlice = createSlice({
     builder
       .addCase(getCashflowLimits.fulfilled, (state, { payload }) => {
         const { monthLimit, dailyLimit, totalByDay, totalByMounth } = payload;
-        state.monthLimit = monthLimit;
-        state.dailyLimit = dailyLimit;
+        state.monthLimit = Math.round(monthLimit);
+        state.dailyLimit = Math.round(dailyLimit);
         state.totalByDay = totalByDay;
         state.totalByMounth = totalByMounth;
       })
       .addCase(addTransaction.fulfilled, (state, { payload }) => {
         const { sum, type } = payload;
         if (type === "expense") {
-          state.totalByDay += sum;
-          // state.totalByMounth -= sum;
+          state.dailyLimit -= sum;
         } else if (type === "income") {
           return state;
         }
@@ -35,8 +34,3 @@ const cashflowSlice = createSlice({
 });
 
 export default cashflowSlice.reducer;
-// sum(pin):80
-// type(pin):"expense"
-// category(pin):"car"
-// owner(pin):"64073a564dbe6cdb40622984"
-// newBalance(pin):810

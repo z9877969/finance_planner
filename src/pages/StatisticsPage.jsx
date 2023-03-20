@@ -1,5 +1,8 @@
-import { Outlet } from "react-router-dom";
+import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import {
+  CategoriesList,
+  ExpensesList,
   MonthPeriod,
   StatisticsPageNav,
   ToolBarWrapper,
@@ -7,13 +10,23 @@ import {
 import { PageWrapper } from "../shared/components";
 
 const StatisticsPage = () => {
+  const [monthDate, setMonthDate] = useState(() => new Date());
   return (
     <PageWrapper>
       <ToolBarWrapper>
         <StatisticsPageNav />
-        <MonthPeriod />
+        <MonthPeriod setDate={setMonthDate} date={monthDate} />
       </ToolBarWrapper>
-      <Outlet />
+      <Routes>
+        <Route
+          path="transactions"
+          element={<ExpensesList date={monthDate} />}
+        />
+        <Route
+          path="categories"
+          element={<CategoriesList date={monthDate} />}
+        />
+      </Routes>
     </PageWrapper>
   );
 };

@@ -1,10 +1,11 @@
+import { useSelector } from "react-redux";
 import { ResultPanel } from "../../../../shared/components";
 import { resultFormOptions as options } from "../../";
 import s from "./ExpensesLimits.module.scss";
-import { useSelector } from "react-redux";
+import { selectorCashflowLimits } from "../../../../redux/cashflow/cashflowSelectors";
 
 const ExpenssesLimits = ({ openModal }) => {
-  const cashflowLimits = useSelector((state) => state.cashflow);
+  const cashflowLimits = useSelector(selectorCashflowLimits);
   return (
     <ResultPanel labelPosition="under" options={options} data={cashflowLimits}>
       <button className={s.btn} type="button" onClick={openModal}>

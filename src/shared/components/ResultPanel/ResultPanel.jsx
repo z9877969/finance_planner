@@ -27,7 +27,12 @@ const ResultPanel = ({
             />
           </label>
         ))}
-        <div className={s.btnWrapper}>
+        <div
+          className={clsx(
+            s.btnWrapper,
+            labelPosition === "over" && s.btnReverse
+          )}
+        >
           <button
             className={clsx(s.btnSubmit, labelPosition === "under" && s.under)}
             type="submit"

@@ -4,7 +4,7 @@ import { useAuth } from "../hooks/useAuth";
 const PublicRoute = ({ component }) => {
   const { isAuth } = useAuth();
 
-  return isAuth ? <Navigate to="/plan" /> : component;
+  return !isAuth ? component : <Navigate to="/plan" />;
 };
 
 export default PublicRoute;

@@ -5,12 +5,13 @@ import {
   ModalAddIncome,
   TransactionDataList,
 } from "../modules/cashFlowPage";
+// import { selectorBalance } from "../redux/auth/authSelectors";
 import {
   addTransaction,
   getCashflowLimits,
 } from "../redux/cashflow/cashflowOperations";
 import { PageWrapper } from "../shared/components";
-import { setNewDate } from "../shared/helpers/date";
+// import { setNewDate, setNewDateWithBalance } from "../shared/helpers/calcBalanceWithDate";
 import { useAuth } from "../shared/hooks/useAuth";
 
 const CashFlowPage = () => {
@@ -18,8 +19,8 @@ const CashFlowPage = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [dataForm, setDataForm] = useState(null);
-  const [isParrentUpdate, setIsParrentUpdate] = useState(false);
-  const { isAuth } = useAuth();
+  const [isSubmiting, setIsSubmiting] = useState(false);
+  const { isUserExist } = useAuth();
 
   const toggleModal = useCallback(() => {
     setIsModalOpen((p) => !p);
@@ -32,16 +33,17 @@ const CashFlowPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsParrentUpdate((p) => !p);
+    setIsSubmiting(true);
   };
 
   useEffect(() => {
-    isAuth && dispatch(getCashflowLimits());
-  }, [dispatch, isAuth]);
+    isUserExist && dispatch(getCashflowLimits());
+  }, [dispatch, isUserExist]);
 
   useEffect(() => {
-    setNewDate();
-    dispatch(addTransaction(dataForm));
+    dataForm && isSubmiting && dispatch(addTransaction(dataForm));
+    dataForm && setIsSubmiting(false);
+    // eslint-disable-next-line
   }, [dataForm, dispatch]);
 
   return (
@@ -50,7 +52,7 @@ const CashFlowPage = () => {
         <form onSubmit={handleSubmit}>
           <TransactionDataList
             setData={setDataForm}
-            isParentUpdate={isParrentUpdate}
+            isSubmiting={isSubmiting}
           />
           <ExpensesLimits openModal={openModal} />
         </form>

@@ -29,9 +29,10 @@ export const getPlan = createAsyncThunk(
 export const createPrePlan = createAsyncThunk(
   "plan/createPre",
   async (prePlanData, { rejectWithValue }) => {
-    console.log("prePlanData :>> ", prePlanData);
     try {
       const data = await createPrePlanApi(prePlanData);
+      console.log("pre_data", data);
+
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

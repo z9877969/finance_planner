@@ -1,5 +1,7 @@
 import s from "./InputsListItem.module.scss";
 
+const onChangePlaceholder = () => {};
+
 const InputsListItem = ({
   num,
   title,
@@ -10,7 +12,7 @@ const InputsListItem = ({
   placeholder = null,
   value,
   disabled = false,
-  onChange = null,
+  onChange = onChangePlaceholder,
   onBlur = null,
   children,
 }) => {

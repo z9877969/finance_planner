@@ -16,7 +16,6 @@ const PlanInputsList = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
     setNewPlanData((p) => ({
       ...p,
       [name]: value === "" ? value : Number(value),

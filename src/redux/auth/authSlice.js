@@ -19,6 +19,11 @@ const initialState = {
   isRefreshing: true,
 };
 
+// _id:"6414a325fdd6215c62719378"
+// email:"dunkan@mail.com"
+// name:"Dunkan"
+// token(
+
 const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -29,11 +34,16 @@ const authSlice = createSlice({
     resetIsRefreshing(state) {
       state.isRefreshing = false;
     },
+    setBalance(state, { payload }) {
+      state.user.balance = payload;
+    },
   },
   extraReducers: (build) => {
     build
       .addCase(registerUser.fulfilled, (state, { payload }) => {
-        state.user = { ...payload };
+        const { token, ...user } = payload.token;
+        state.user = user;
+        state.token = token;
         state.isAuth = true;
       })
       .addCase(loginUser.fulfilled, (state, { payload }) => {
@@ -67,5 +77,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { logOut, resetIsRefreshing } = authSlice.actions;
+export const { logOut, resetIsRefreshing, setBalance } = authSlice.actions;
 export default authSlice.reducer;
