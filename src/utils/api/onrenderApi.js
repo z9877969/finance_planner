@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://flat-back.onrender.com/api";
+axios.defaults.baseURL = "https://flat-backend.p.goit.global/api";
 
 const token = {
   set(token) {
