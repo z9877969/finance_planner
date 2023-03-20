@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { selectorBalance } from "../../../../redux/auth/authSelectors";
-import InputsListItem from "../../../../shared/components/InputsListItem/InputsListItem";
-import CategorySelect from "../../../../shared/components/CategorySelect/CategorySelect";
+import { selectorBalance } from "redux/auth/authSelectors";
+import InputsListItem from "shared/components/InputsListItem/InputsListItem";
+import CategorySelect from "shared/components/CategorySelect/CategorySelect";
 import s from "./TransactionDataList.module.scss";
 import { expenseInitialState } from "../../data/transactionInitialState";
 

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import ReactSelect from "react-select";
-import useCategories from "../../hooks/useCategories";
+import useCategories from "shared/hooks/useCategories";
 import "./CategorySelect.scss";
 
 const setValuePlaceholder = () => {};

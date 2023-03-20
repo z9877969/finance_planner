@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { PeriodPlanExecution, PlanInputsList } from "../modules/ownPlanPage";
-import ModalAddBalance from "../modules/ownPlanPage/components/ModalAddBalance/ModalAddBalance";
-import { PageWrapper } from "../shared/components";
-import { useAuth } from "../shared/hooks/useAuth";
-import { selectorIsExistBalance } from "../redux/auth/authSelectors";
-import { addPlan, editPlan, getPlan } from "../redux/plan/planOperations";
-import { selectorPlanData } from "../redux/plan/planSelectors";
+import { PeriodPlanExecution, PlanInputsList } from "modules/ownPlanPage";
+import ModalAddBalance from "modules/ownPlanPage/components/ModalAddBalance/ModalAddBalance";
+import { PageWrapper } from "shared/components";
+import { useAuth } from "shared/hooks/useAuth";
+import { selectorIsExistBalance } from "redux/auth/authSelectors";
+import { addPlan, editPlan, getPlan } from "redux/plan/planOperations";
+import { selectorPlanData } from "redux/plan/planSelectors";
 
 const OwnPlanPage = () => {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ const OwnPlanPage = () => {
 
   useEffect(() => {
     !isExistBalance && toggleModal();
-  }, [isExistBalance]);
+  }, [isExistBalance, toggleModal]);
 
   useEffect(() => {
     isUserExist && dispatch(getPlan());

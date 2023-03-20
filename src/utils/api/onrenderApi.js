@@ -21,6 +21,7 @@ const path = {
   PLAN: "/personal-plan",
   CASHFLOW_LIMIT: "/cashflow/presaving",
   TRANSACTIONS: "/cashflow",
+  CATEGORIES_DATA: "/cashflow/stat",
   CATEGORIES: "/cashflow/category",
 };
 
@@ -136,6 +137,16 @@ export const editTransactionApi = async ({ transaction, id }) => {
   }
 };
 
+export const removeTransactionApi = async (id) => {
+  try {
+    const { data } = await axios.delete(path.TRANSACTIONS + "/" + id);
+    console.log("data :>> ", data);
+    return id;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const getTransactionsApi = async ({ month, year }) => {
   try {
     const params =
@@ -147,6 +158,23 @@ export const getTransactionsApi = async ({ month, year }) => {
         ? { year }
         : {};
     const { data } = await axios.get(path.TRANSACTIONS, { params });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getCategoriesStatApi = async ({ month, year }) => {
+  try {
+    const params =
+      month && year
+        ? { month, year }
+        : month
+        ? { month }
+        : year
+        ? { year }
+        : {};
+    const { data } = await axios.get(path.CATEGORIES_DATA, { params });
     return data;
   } catch (error) {
     throw error;

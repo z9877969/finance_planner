@@ -4,15 +4,13 @@ import {
   ExpensesLimits,
   ModalAddIncome,
   TransactionDataList,
-} from "../modules/cashFlowPage";
-// import { selectorBalance } from "../redux/auth/authSelectors";
+} from "modules/cashFlowPage";
 import {
   addTransaction,
   getCashflowLimits,
-} from "../redux/cashflow/cashflowOperations";
-import { PageWrapper } from "../shared/components";
-// import { setNewDate, setNewDateWithBalance } from "../shared/helpers/calcBalanceWithDate";
-import { useAuth } from "../shared/hooks/useAuth";
+} from "redux/cashflow/cashflowOperations";
+import { PageWrapper } from "shared/components";
+import { useAuth } from "shared/hooks/useAuth";
 
 const CashFlowPage = () => {
   const dispatch = useDispatch();

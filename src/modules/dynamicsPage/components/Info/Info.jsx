@@ -1,6 +1,6 @@
 import s from "./Info.module.scss";
 import flatDrawImg from "../../images/flat-draw.png";
-import { hryvna as svgHryvna } from "../../../../assets/icons/index";
+import { hryvna as svgHryvna } from "assets/icons/index";
 
 const Info = () => {
   return (

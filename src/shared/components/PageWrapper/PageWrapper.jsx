@@ -1,4 +1,4 @@
-import { Section, Container } from "../";
+import { Section, Container } from "shared/components";
 import s from "./PageWrapper.module.scss";
 
 const PageWrapper = ({ children }) => {

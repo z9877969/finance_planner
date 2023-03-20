@@ -1,14 +1,11 @@
 import { useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectorCategories } from "../../../../redux/categories/categoriesSelector";
-import {
-  finishLoader,
-  startLoader,
-} from "../../../../redux/loading/loadingSlice";
-import { Modal, InputsListItem } from "../../../../shared/components";
-import { editTransactionApi } from "../../../../utils/api/onrenderApi";
-import { CategorySelect } from "../../../cashFlowPage";
-import { setBalance } from "../../../../redux/auth/authSlice";
+import { Modal, InputsListItem } from "shared/components";
+import { CategorySelect } from "modules/cashFlowPage";
+import { selectorCategories } from "redux/categories/categoriesSelector";
+import { finishLoader, startLoader } from "redux/loading/loadingSlice";
+import { setBalance } from "redux/auth/authSlice";
+import { editTransactionApi } from "utils/api/onrenderApi";
 import s from "./ModalEditTransaction.module.scss";
 
 const ModalEditTransaction = ({ closeModal, dataForm, setTransactions }) => {

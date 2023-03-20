@@ -1,5 +1,5 @@
-import { Container, Section } from "../shared/components";
-import { Chart, Info, Statistic } from "../modules/dynamicsPage";
+import { Container, Section } from "shared/components";
+import { Chart, Info, Statistic } from "modules/dynamicsPage";
 
 const DynamicsPage = () => {
   return (

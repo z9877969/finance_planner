@@ -4,7 +4,7 @@ import {
   selectorIsRefreshing,
   selectorIsUserExist,
   selectorUserName,
-} from "../../redux/auth/authSelectors";
+} from "redux/auth/authSelectors";
 
 export const useAuth = () => {
   const isAuth = useSelector(selectorIsAuth);

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addBaseBalance } from "../../../../redux/auth/authOperations";
-import { selectorBalance } from "../../../../redux/auth/authSelectors";
-import { Modal } from "../../../../shared/components";
+import { addBaseBalance } from "redux/auth/authOperations";
+import { selectorBalance } from "redux/auth/authSelectors";
+import { Modal } from "shared/components";
 
 const ModalAddBalance = ({ closeModal }) => {
   const dispatch = useDispatch();

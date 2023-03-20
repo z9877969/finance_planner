@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import { selectorAccumPeriod } from "../../../../redux/plan/planSelectors";
-import { ResultPanel } from "../../../../shared/components";
+import { selectorAccumPeriod } from "redux/plan/planSelectors";
+import { ResultPanel } from "shared/components";
 import { resultFormOptions as options } from "../../data/resultFormOptions";
 import s from "./PeriodPlanExecution.module.scss";
 

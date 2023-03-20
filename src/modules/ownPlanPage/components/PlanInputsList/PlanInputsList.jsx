@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectorPlanData } from "../../../../redux/plan/planSelectors";
-import InputsListItem from "../../../../shared/components/InputsListItem/InputsListItem";
+import { selectorPlanData } from "redux/plan/planSelectors";
+import InputsListItem from "shared/components/InputsListItem/InputsListItem";
 import { inputsListOptions as options } from "../../data/inputsListOptions";
 import { initialPlanDataState } from "../../data/initialPlanDataState";
-import { createPrePlan } from "../../../../redux/plan/planOperations";
+import { createPrePlan } from "redux/plan/planOperations";
 import s from "./PlanInputsList.module.scss";
 
 const PlanInputsList = () => {

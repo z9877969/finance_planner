@@ -1,9 +1,9 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Modal, Form } from "../../../shared/components";
+import { Modal, Form } from "shared/components";
 import { loginFormOptions as options } from "../data/formOptions";
 import { initialLoginFormValues as initialValues } from "../data/initialFormValues";
-import { loginUser } from "../../../redux/auth/authOperations";
+import { loginUser } from "redux/auth/authOperations";
 
 const ModalLogin = () => {
   const dispatch = useDispatch();

@@ -1,9 +1,9 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Modal, Form } from "../../../shared/components";
+import { Modal, Form } from "shared/components";
 import { registerFormOptions as options } from "../data/formOptions";
 import { initialRegisterFormValues as initialValues } from "../data/initialFormValues";
-import { registerUser } from "../../../redux/auth/authOperations";
+import { registerUser } from "redux/auth/authOperations";
 
 const ModalRegister = () => {
   const dispatch = useDispatch();

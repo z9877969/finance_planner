@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategories } from "../../redux/categories/categoriesOperations";
-import { useAuth } from "./useAuth";
+import { getCategories } from "redux/categories/categoriesOperations";
+import { useAuth } from "shared/hooks/useAuth";
 
 const useCategories = () => {
   const dispatch = useDispatch();

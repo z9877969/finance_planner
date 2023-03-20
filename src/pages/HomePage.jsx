@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Outlet } from "react-router-dom";
-import { BgContainer } from "../modules/homePage";
-import { resetIsRefreshing } from "../redux/auth/authSlice";
-import { Container, Section } from "../shared/components";
+import { BgContainer } from "modules/homePage";
+import { resetIsRefreshing } from "redux/auth/authSlice";
+import { Container, Section } from "shared/components";
 
 const HomePage = () => {
   const dispatch = useDispatch();

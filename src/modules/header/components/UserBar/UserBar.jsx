@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { logoutUser } from "../../../../redux/auth/authOperations";
-import { selectorUserName } from "../../../../redux/auth/authSelectors";
-import { useCheckPlan } from "../../../../shared/hooks/useCheckPlan";
+import { logoutUser } from "redux/auth/authOperations";
+import { selectorUserName } from "redux/auth/authSelectors";
+import { useCheckPlan } from "shared/hooks/useCheckPlan";
 import { logOutIcon, statsLinkIcon } from "../../icons";
 import s from "./UserBar.module.scss";
 

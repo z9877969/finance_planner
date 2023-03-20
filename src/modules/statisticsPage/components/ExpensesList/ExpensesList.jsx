@@ -1,54 +1,40 @@
-import { useEffect, useMemo, useState } from "react";
-import ListWrapper from "../ListWrapper/ListWrapper";
-import { transactions as defaultTransactions } from "../../data/transactions";
-import s from "./ExpensesList.module.scss";
-import { pencil, trash } from "../../icons";
-import ModalEditTransaction from "../ModalEditTransaction/ModalEditTransaction";
-import { getTransactionsApi } from "../../../../utils/api/onrenderApi";
-import useCategories from "../../../../shared/hooks/useCategories";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import ListWrapper from "../ListWrapper/ListWrapper";
+import ModalEditTransaction from "../ModalEditTransaction/ModalEditTransaction";
+import { pencil, trash } from "../../icons";
 import {
-  finishLoader,
-  startLoader,
-} from "../../../../redux/loading/loadingSlice";
-import { selectorIsUserExist } from "../../../../redux/auth/authSelectors";
-import { selectorCategories } from "../../../../redux/categories/categoriesSelector";
+  getTransactionsApi,
+  removeTransactionApi,
+} from "utils/api/onrenderApi";
+import { finishLoader, startLoader } from "redux/loading/loadingSlice";
+import { selectorIsUserExist } from "redux/auth/authSelectors";
+import s from "./ExpensesList.module.scss";
+import { getPeriodDate } from "modules/statisticsPage/helpers/getPeriodDate";
+import { formatDate } from "modules/statisticsPage/helpers/formatDate";
 
-const getPeriodDate = (date) => {
-  return { month: date.getMonth() + 1, year: date.getFullYear() };
-};
-
-const formatDate = (date) => {
-  const cutedDate = date.split("T")[0];
-  return cutedDate
-    .split("-")
-    .reduce((acc, el) => {
-      acc.unshift(el);
-      return acc;
-    }, [])
-    .join("-");
-};
-
-const ExpensesList = ({ date }) => {
+const ExpensesList = ({ date, categoriesMap }) => {
   const dispatch = useDispatch();
-
-  useCategories();
 
   const [transactions, setTransactions] = useState([]);
   const [editedTransaction, setEditedTransaction] = useState(null);
 
   const isUserExist = useSelector(selectorIsUserExist);
-  const categories = useSelector(selectorCategories);
-  
-  const categoriesMap = useMemo(() => {
-    return categories.reduce((acc, el) => {
-      acc[el.name] = el.title;
-      return acc;
-    }, {});
-  }, [categories]);
 
   const toggleEditedModal = (transaction = null) => {
     setEditedTransaction(transaction);
+  };
+
+  const handleRemoveTransaction = async (id) => {
+    dispatch(startLoader());
+    try {
+      await removeTransactionApi(id);
+      setTransactions((t) => t.filter(({ _id }) => _id !== id));
+    } catch (error) {
+      console.error(error.message);
+    } finally {
+      dispatch(finishLoader());
+    }
   };
 
   useEffect(() => {
@@ -96,7 +82,11 @@ const ExpensesList = ({ date }) => {
                 >
                   <img src={pencil} alt="" />
                 </button>
-                <button type="button" className={s.btnRemove}>
+                <button
+                  type="button"
+                  className={s.btnRemove}
+                  onClick={() => handleRemoveTransaction(el._id)}
+                >
                   <img src={trash} alt="" />
                 </button>
               </div>

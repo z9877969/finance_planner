@@ -3,17 +3,17 @@ import { useDispatch } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Header } from "./modules/header";
-import { ModalLogin, ModalRegister } from "./modules/homePage";
+import { Header } from "modules/header";
+import { ModalLogin, ModalRegister } from "modules/homePage";
 import {
   CashFlowPage,
   HomePage,
   OwnPlanPage,
   DynamicsPage,
   StatisticsPage,
-} from "./pages";
-import { PrivateRoute, PublicRoute } from "./shared/containers";
-import { getCurUser } from "./redux/auth/authOperations";
+} from "pages";
+import { PrivateRoute, PublicRoute } from "shared/containers";
+import { getCurUser } from "redux/auth/authOperations";
 
 const App = () => {
   const dispatch = useDispatch();

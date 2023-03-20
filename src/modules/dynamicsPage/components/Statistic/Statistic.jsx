@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import s from "./Statistic.module.scss";
-import { hryvna } from "../../../../assets/icons";
+import { hryvna } from "assets/icons";
 import PeriodSelect from "../PeriodSelect/PeriodSelect";
 
 const options = [
@@ -62,7 +62,8 @@ const Statistic = () => {
   const getMonthStatistic = useCallback((month) => {
     console.log("month :>> ", month);
     // const stats = await fetch();
-    // setMonthStatistic(stats);
+    const stats = initialState;
+    setMonthStatistic(stats);
   }, []);
 
   return (

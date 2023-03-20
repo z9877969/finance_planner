@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectorBalance } from "../../../../redux/auth/authSelectors";
-import { addTransaction } from "../../../../redux/cashflow/cashflowOperations";
-import { Form, Modal } from "../../../../shared/components";
+import { selectorBalance } from "redux/auth/authSelectors";
+import { addTransaction } from "redux/cashflow/cashflowOperations";
+import { Form, Modal } from "shared/components";
 import { modalAddIncomeOptions as options } from "../../data/modalAddIncomeOptions";
 import { incomeInitialState } from "../../data/transactionInitialState";
 import s from "./ModalAddIncome.module.scss";

@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { NavLink } from "react-router-dom";
-import { useCheckPlan } from "../../../../shared/hooks/useCheckPlan";
+import { useCheckPlan } from "shared/hooks/useCheckPlan";
 import s from "./UserNav.module.scss";
 
 const setActiveLink = ({ isActive }) => clsx(s.link, isActive && s.active);

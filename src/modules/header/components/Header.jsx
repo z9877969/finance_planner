@@ -1,9 +1,9 @@
-import Container from "../../../shared/components/Container/Container";
+import Container from "shared/components/Container/Container";
 import Navigation from "./Navigation/Navigation";
 import UserBar from "./UserBar/UserBar";
 import Logo from "./Logo/Logo";
 import s from "./Header.module.scss";
-import { useAuth } from "../../../shared/hooks/useAuth";
+import { useAuth } from "shared/hooks/useAuth";
 
 const Header = () => {
   const { isAuth } = useAuth();
